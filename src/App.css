@@ -19,6 +19,10 @@
 	color: var(--gray-color);
 }
 
+.app__form {
+	margin-bottom: 50px;
+}
+
 .app__sing-in {
 	position: relative;
 	display: flex;
@@ -41,7 +45,21 @@
 	align-items: center;
 	gap: 5px;
 	padding-left: 10px;
+	color: var(--action-color);
+	transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+	&:hover {
+		color: rgba(75, 114, 194, 0.5);
+	}
+	&:focus-within {
+		color: var(--white-color);
+	}
+	&:active .app-sign-in__svg {
+		flex-shrink: 0;
+		margin-left: 5px;
+	}
 }
 
 .app-sign-in__svg {
+	transition: margin-left 0.3s ease-in-out;
 }

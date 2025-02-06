@@ -13,6 +13,7 @@ html {
 	--white-color: #fff;
 	--gray-color: #7f7f7f;
 	--action-color: #4b72c2;
+	--error-color: #f00;
 }
 
 body {

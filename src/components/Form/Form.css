@@ -1,0 +1,134 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.form__input {
+	width: 100%;
+	height: 48px;
+	padding: 14px 20px;
+	background-color: transparent;
+	color: var(--white-color);
+	border: 1px solid #3d3d3d;
+	border-radius: 4px;
+	transition: border-color 0.3s ease-in-out;
+}
+
+.form__input-wrap {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.form__checkbox {
+	position: relative;
+	display: block;
+	width: fit-content;
+	line-height: 24px;
+	padding-left: 40px;
+	color: var(--gray-color);
+	cursor: pointer;
+	transition: color 0.3s ease-in-out;
+}
+
+.form__input_check {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	inset: 0;
+	padding: 0;
+	border: 1px solid #3d3d3d;
+	border-radius: 4px;
+	transition: border-color 0.3s ease-in-out;
+	cursor: inherit;
+
+	&:disabled {
+		border-color: var(--error-color);
+	}
+}
+
+.form__input_check::after {
+	position: absolute;
+	inset: 0;
+	content: '';
+	background: url(../../assets/check.svg) center no-repeat;
+	color: var(--white-color);
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.form__input_check:checked::after {
+	opacity: 1;
+}
+
+.form__show {
+	position: absolute;
+	top: 9px;
+	right: 20px;
+	width: 30px;
+	height: 30px;
+	background: center no-repeat;
+	transition: background-image 0.3s ease-in-out;
+}
+
+.form__show_open {
+	background-image: url(../../assets/eye-open.svg);
+}
+.form__show_close {
+	background-image: url(../../assets/eye-close.svg);
+}
+
+.form__submit {
+	width: 200px;
+	height: 48px;
+	border-radius: 4px;
+	border: 1px solid transparent;
+	background-color: var(--action-color);
+	color: var(--white-color);
+	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out,
+		border-color 0.3s ease-in-out;
+
+	&:active {
+		transform: scale(0.9);
+	}
+}
+
+@media (any-hover: hover) {
+	.form__input:hover {
+		border-color: rgba(75, 114, 194, 0.5);
+	}
+	.form__input:focus-visible {
+		border-color: var(--action-color);
+	}
+	.form__checkbox:hover {
+		color: var(--white-color);
+	}
+	.form__input_check:focus-visible {
+		outline: none;
+		border-color: var(--white-color);
+	}
+	.form__input_check:hover:not(:disabled) {
+		border-color: var(--white-color);
+		color: var(--white-color);
+	}
+	.form__submit:hover {
+		background-color: rgba(75, 114, 194, 0.5);
+	}
+	.form__submit:focus-within {
+		border-color: var(--white-color);
+		background-color: transparent;
+	}
+}
+
+.is-error {
+	border-color: var(--error-color) !important;
+}
+
+.form__text-error {
+	color: var(--error-color);
+}
